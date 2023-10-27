@@ -1,4 +1,4 @@
-# riverpood_clean_archi_flutter
+# [riverpood_clean_archi_flutter](https://www.youtube.com/watch?v=fT-eOgl_jhk&list=WL&index=1)
 
 ```yaml
 dependencies:
