@@ -1,5 +1,15 @@
 # [riverpood_clean_archi_flutter](https://www.youtube.com/watch?v=fT-eOgl_jhk&list=WL&index=1)
 
+## Future:
+Riverpood : Riverpod makes working with asynchronous code.
+
+Clean Architecture : In this tutorial, we're combine clean archi with DDD.
+
+Hive: Learn how to set up, read, write, and manage a local Hive database within a Flutter application.
+
+## Packages 
+
+pubspec.yaml
 ```yaml
 dependencies:
   flutter:
