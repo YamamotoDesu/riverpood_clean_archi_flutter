@@ -1,16 +1,23 @@
 # riverpood_clean_archi_flutter
 
-A new Flutter project.
+```yaml
+dependencies:
+  flutter:
+    sdk: flutter
 
-## Getting Started
+  cupertino_icons: ^1.0.2
+  hive: ^2.2.3
+  hive_flutter: ^1.1.0
+  flutter_riverpod: ^2.4.4
+  path_provider: ^2.1.1
+  dartz: ^0.10.1
+  intl: ^0.18.1
 
-This project is a starting point for a Flutter application.
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+  flutter_lints: ^2.0.0
+  hive_generator: ^2.0.1
+  build_runner: ^2.4.6
+```
