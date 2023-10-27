@@ -31,3 +31,22 @@ dev_dependencies:
   hive_generator: ^2.0.1
   build_runner: ^2.4.6
 ```
+
+## Project Structures
+```text
+- lib
+  - features
+    - trip
+      - data
+        - datasources
+        - models
+        - repositories
+      - domain
+        - entities
+        - repositories
+        - usecases
+      - presentation
+        - pages
+        - providers
+        - widgets
+```
