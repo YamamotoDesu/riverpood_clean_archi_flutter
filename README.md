@@ -50,3 +50,95 @@ dev_dependencies:
         - providers
         - widgets
 ```
+
+## Domain Layer 
+
+### Structure
+```text
+      - domain
+        - entities
+          - trip.dart
+        - repositories
+          - trip_repository.dart
+        - usecases
+          - add_trip.dart
+          - delete_trip.dart
+          - get_trips.dart
+```
+
+lib/features/trip/domain/entities/trip.dart
+```dart
+class Trip {
+  final String title;
+  final List<String> pictures;
+  final String description;
+  final DateTime date;
+  final String location;
+
+  Trip({
+    required this.title,
+    required this.pictures,
+    required this.description,
+    required this.date,
+    required this.location,
+  });
+}
+```
+
+lib/features/trip/domain/repositories/trip_repository.dart
+```dart
+import 'package:riverpood_clean_archi_flutter/features/trip/domain/entities/trip.dart';
+
+abstract class TripRepository {
+  Future<Trip> getTrips();
+  Future<void> addTrips(Trip trip);
+  Future<void> deleteTrip(int index);
+}
+```
+
+lib/features/trip/domain/usecases/add_trip.dart
+```dart
+import 'package:riverpood_clean_archi_flutter/features/trip/domain/entities/trip.dart';
+import 'package:riverpood_clean_archi_flutter/features/trip/domain/repositories/trip_repository.dart';
+
+class AddTrip {
+  final TripRepository repository;
+
+  AddTrip(this.repository);
+
+  Future<void> call(Trip trip) {
+    return repository.addTrips(trip);
+  }
+}
+```
+
+lib/features/trip/domain/usecases/delete_trip.dart
+```dart
+import 'package:riverpood_clean_archi_flutter/features/trip/domain/repositories/trip_repository.dart';
+
+class DeleteTrip {
+  final TripRepository repository;
+
+  DeleteTrip(this.repository);
+
+  Future<void> call(int index) {
+    return repository.deleteTrip(index);
+  }
+}
+```
+
+lib/features/trip/domain/usecases/get_trips.dart
+```dart
+import 'package:riverpood_clean_archi_flutter/features/trip/domain/entities/trip.dart';
+import 'package:riverpood_clean_archi_flutter/features/trip/domain/repositories/trip_repository.dart';
+
+class GetTrips {
+  final TripRepository repository;
+
+  GetTrips(this.repository);
+
+  Future<Trip> call() {
+    return repository.getTrips();
+  }
+}
+```
