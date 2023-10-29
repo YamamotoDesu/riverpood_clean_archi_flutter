@@ -1,3 +1,5 @@
+import 'package:dartz/dartz.dart';
+import 'package:riverpood_clean_archi_flutter/core.error/failures.dart';
 import 'package:riverpood_clean_archi_flutter/features/trip/data/datasources/trip_local_datasource.dart';
 import 'package:riverpood_clean_archi_flutter/features/trip/data/models/trip_model.dart';
 import 'package:riverpood_clean_archi_flutter/features/trip/domain/entities/trip.dart';
@@ -20,10 +22,14 @@ class TripRepositryImpl implements TripRepository {
   }
 
   @override
-  Future<List<Trip>> getTrips() async {
-    final tripModels = localDataSource.getTrips();
-    List<Trip> res =
-        tripModels.map((tripModel) => tripModel.toEntity()).toList();
-    return res;
+  Future<Either<Failure, List<Trip>>> getTrips() async {
+    try {
+      final tripModels = localDataSource.getTrips();
+      List<Trip> res =
+          tripModels.map((tripModel) => tripModel.toEntity()).toList();
+      return Right(res);
+    } catch (e) {
+      return Left(ServerFailure(e.toString()));
+    }
   }
 }

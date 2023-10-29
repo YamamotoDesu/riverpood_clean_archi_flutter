@@ -7,6 +7,7 @@ class TripLocalDataSource {
   TripLocalDataSource(this.tripBox);
 
   List<TripModel> getTrips() {
+    print('*** tripBox.values.toList(): ${tripBox.values.toList()}');
     return tripBox.values.toList();
   }
 
@@ -15,6 +16,7 @@ class TripLocalDataSource {
   }
 
   void deleteTrip(int index) {
-    tripBox.delete(index);
+    final key = tripBox.keyAt(index);
+    tripBox.delete(key);
   }
 }
